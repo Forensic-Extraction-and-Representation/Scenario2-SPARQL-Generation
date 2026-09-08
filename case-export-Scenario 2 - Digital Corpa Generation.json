@@ -1,0 +1,116 @@
+{
+  "Manifest": {
+    "ImportMessage": "This case relates to Scenario 2 for the Thesis \u0022A Framework for Mapping Artefacts to Knowledge-Graph Representations for Digital Forensic Investigations\u0022 by Allan Korol.",
+    "IncludedSections": [
+      "Directories",
+      "GraphSettings",
+      "ConnectionSettings",
+      "Repositories",
+      "AgentConfiguration"
+    ],    
+	"AgentSecrets": [
+	  {
+		"AgentKey": "QueryHelper",
+		"FieldName": "ApiKey",
+		"IsIncluded": false
+	  },
+	  {
+		"AgentKey": "Agent2",
+		"FieldName": "ApiKey",
+		"IsIncluded": false
+	  }
+	]
+  },
+  "CaseInfo": {
+    "Name": "Scenario2-SPARQL-Generation",
+    "Description": "",
+    "CaseNumber": "S2",
+    "CaseType": "Scenario",
+    "CaseStatus": "Active",
+    "CaseDate": "2026-06-28T03:41:00.999658Z",
+    "Namespace": "",
+    "NamespaceAbbrev": ""
+  },
+  "Configuration": {
+    "InvestigationName": "Scenario2-SPARQL-Generation",
+    "OntologyOutputFormat": "ttl",
+    "TranspiledSourceOutputRoot": "",
+    "OutputTranspiledSource": false,
+    "PreCompiledDirectoryOption": "PreCompiled",
+    "ScriptDirectoryOption": "Source",
+    "PackageDirectoryOption": "Packages",
+    "NamespaceOption": "http://scenario-2.fear.graph/",
+    "NamespaceAbbrevOption": "s2",
+    "WorkingDirectory": "Investigation-Scenario2-SPARQL-Generation",
+    "GraphManager": {
+      "RemoteGraph": false,
+      "RemoteGraphSetupProvider": null
+    },
+    "AgentConfiguration": {
+		"Enabled": true,
+		"DefaultAgent": "Agent2",
+		"Agents": {
+			"QueryHelper": {
+				"AgentIdentifier": "AG-ec9590ed14",
+				"AgentName": "QueryHelper",
+				"AgentType": "OpenAI",
+				"Description": "Agent to help generate SPARQL Queries",
+				"InputChain": [
+					"<Prompt>"
+				],
+				"AgentOptions": {
+					"ApiKey": "",
+					"AgentBaseUrl": "https://api.openai.com/v1",
+					"AgentModel": "gpt-4o",
+					"SystemPrompt": "",
+					"TemplatePrompt": ""
+				}
+			},
+			"Agent2": {
+				"AgentIdentifier": "AG-8316a4d581",
+				"AgentName": "Agent2",
+				"AgentType": "OpenAI",
+				"Description": "Default Agent",
+				"InputChain": [
+					"<Prompt>"
+				],
+				"AgentOptions": {
+					"ApiKey": "",
+					"AgentBaseUrl": "https://api.openai.com/v1",
+					"AgentModel": "gpt-4o",
+					"SystemPrompt": "",
+					"TemplatePrompt": ""
+				}
+			}
+		}
+	},
+    "Connections": {
+      "GraphDBConnection": {
+        "Endpoint": "",
+        "Authentication": false,
+        "Language": "SPARQL",
+        "Username": "",
+        "Password": ""
+      },
+      "DatabaseConnections": {}
+    },
+    "Repositories": {
+      "GFEAR": [
+        "git\u002BForensic-Extraction-and-Representation/Scenario2-SPARQL-Generation.git"
+      ],
+      "RFEAR": [
+        "git\u002BForensic-Extraction-and-Representation/Scenario2-SPARQL-Generation.git"
+      ]
+    },
+    "PrecompiledLibraries": {
+      "CFEAR": [],
+      "GFEAR": [],
+      "RFEAR": []
+    },
+    "PackagedSources": [],
+    "FindEntityStrategyFactory": {
+      "Local": "FEAR.Runtime.KnowledgeGraph.EntitySearch.InMemory.DefaultFindEntityStrategyFactory",
+      "Remote": null
+    }
+  }
+}

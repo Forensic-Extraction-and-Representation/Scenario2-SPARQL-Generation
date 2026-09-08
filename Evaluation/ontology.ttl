@@ -1,0 +1,186 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix aut: <https://github.com/owlontology/digitalforensics/blob/main/autopsy.owl#>.
+@prefix xml: <http://www.w3.org/XML/1998/namespace>.
+@prefix aut-email: <https://github.com/owlontology/digitalforensics/blob/main/autopsy-email.owl#>.
+
+aut-email:emailFrom a owl:DatatypeProperty;
+                    rdfs:domain aut:EmailMessage;
+                    rdfs:range xsd:string.
+aut-email:emailTo a owl:DatatypeProperty;
+                  rdfs:domain aut:EmailMessage;
+                  rdfs:range xsd:string.
+aut-email:messageId a owl:DatatypeProperty;
+                    rdfs:domain aut:EmailMessage;
+                    rdfs:range xsd:string.
+aut-email:path a owl:DatatypeProperty;
+               rdfs:domain aut:EmailMessage;
+               rdfs:range xsd:string.
+aut-email:receivedDateTime a owl:DatatypeProperty;
+                           rdfs:domain aut:EmailMessage;
+                           rdfs:range xsd:dateTime.
+aut-email:subject a owl:DatatypeProperty;
+                  rdfs:domain aut:EmailMessage;
+                  rdfs:range xsd:string.
+aut-email:threadId a owl:DatatypeProperty;
+                   rdfs:domain aut:EmailMessage;
+                   rdfs:range xsd:string.
+aut:Account a owl:Class.
+aut:EmailMessage a owl:Class.
+aut:ExtensionMismatch a owl:Class.
+aut:Host a owl:Class.
+aut:InstalledProgram a owl:Class.
+aut:Metadata a owl:Class.
+aut:OperatingSystemInformation a owl:Class.
+aut:RecentDocument a owl:Class.
+aut:RecycleBin a owl:Class.
+aut:USBDeviceAttached a owl:Class.
+aut:WebBookmark a owl:Class.
+aut:WebCookie a owl:Class.
+aut:WebHistory a owl:Class.
+aut:WebSearch a owl:Class.
+aut:accessedDateTime a owl:DatatypeProperty;
+                     rdfs:domain aut:WebHistory,
+                                 aut:RecentDocument;
+                     rdfs:range xsd:dateTime.
+aut:accountType a owl:DatatypeProperty;
+                rdfs:domain aut:Account;
+                rdfs:range xsd:string.
+aut:attachedDateTime a owl:DatatypeProperty;
+                     rdfs:domain aut:USBDeviceAttached;
+                     rdfs:range xsd:dateTime.
+aut:category a owl:DatatypeProperty;
+             rdfs:domain aut:WebBookmark,
+                         aut:WebSearch,
+                         aut:EmailMessage,
+                         aut:USBDeviceAttached,
+                         aut:ExtensionMismatch,
+                         aut:WebCookie,
+                         aut:Account,
+                         aut:InstalledProgram,
+                         aut:Metadata,
+                         aut:WebHistory,
+                         aut:RecycleBin,
+                         aut:RecentDocument,
+                         aut:OperatingSystemInformation;
+             rdfs:range xsd:string,
+                        xsd:String.
+aut:createdDateTime a owl:DatatypeProperty;
+                    rdfs:domain aut:WebBookmark,
+                                aut:WebCookie,
+                                aut:Metadata;
+                    rdfs:range xsd:dateTime.
+aut:deviceID a owl:DatatypeProperty;
+             rdfs:domain aut:USBDeviceAttached;
+             rdfs:range xsd:string.
+aut:deviceMake a owl:DatatypeProperty;
+               rdfs:domain aut:USBDeviceAttached;
+               rdfs:range xsd:string.
+aut:deviceModel a owl:DatatypeProperty;
+                rdfs:domain aut:USBDeviceAttached;
+                rdfs:range xsd:string.
+aut:domain a owl:DatatypeProperty;
+           rdfs:domain aut:WebBookmark,
+                       aut:WebSearch,
+                       aut:WebCookie,
+                       aut:WebHistory;
+           rdfs:range xsd:string.
+aut:hostSha1 a owl:DatatypeProperty;
+             rdfs:domain aut:Host;
+             rdfs:range xsd:string.
+aut:id a owl:DatatypeProperty;
+       rdfs:domain aut:Account;
+       rdfs:range xsd:string.
+aut:installedDateTime a owl:DatatypeProperty;
+                      rdfs:domain aut:InstalledProgram;
+                      rdfs:range xsd:dateTime.
+aut:modifiedDateTime a owl:DatatypeProperty;
+                     rdfs:domain aut:Metadata;
+                     rdfs:range xsd:dateTime.
+aut:name a owl:DatatypeProperty;
+         rdfs:domain aut:WebCookie,
+                     aut:OperatingSystemInformation;
+         rdfs:range xsd:string.
+aut:owner a owl:DatatypeProperty;
+          rdfs:domain aut:Metadata,
+                      aut:OperatingSystemInformation;
+          rdfs:range xsd:string.
+aut:path a owl:DatatypeProperty;
+         rdfs:domain aut:RecentDocument,
+                     aut:OperatingSystemInformation;
+         rdfs:range xsd:string.
+aut:processorArchitecture a owl:DatatypeProperty;
+                          rdfs:domain aut:OperatingSystemInformation;
+                          rdfs:range xsd:string.
+aut:productID a owl:DatatypeProperty;
+              rdfs:domain aut:OperatingSystemInformation;
+              rdfs:range xsd:string.
+aut:programName a owl:DatatypeProperty;
+                rdfs:domain aut:InstalledProgram,
+                            aut:Metadata,
+                            aut:OperatingSystemInformation;
+                rdfs:range xsd:string.
+aut:sourceFile a owl:DatatypeProperty;
+               rdfs:domain aut:WebBookmark,
+                           aut:WebSearch,
+                           aut:EmailMessage,
+                           aut:USBDeviceAttached,
+                           aut:ExtensionMismatch,
+                           aut:WebCookie,
+                           aut:Account,
+                           aut:InstalledProgram,
+                           aut:Metadata,
+                           aut:WebHistory,
+                           aut:RecycleBin,
+                           aut:RecentDocument,
+                           aut:OperatingSystemInformation;
+               rdfs:range xsd:string.
+aut:sourceFileMd5 a owl:DatatypeProperty;
+                  rdfs:domain aut:ExtensionMismatch,
+                              aut:Metadata,
+                              aut:RecentDocument;
+                  rdfs:range xsd:string,
+                             xsd:hexBinary.
+aut:sourceHost a owl:ObjectProperty;
+               rdfs:domain aut:WebBookmark,
+                           aut:WebSearch,
+                           aut:EmailMessage,
+                           aut:USBDeviceAttached,
+                           aut:ExtensionMismatch,
+                           aut:WebCookie,
+                           aut:Account,
+                           aut:InstalledProgram,
+                           aut:Metadata,
+                           aut:WebHistory,
+                           aut:RecycleBin,
+                           aut:RecentDocument,
+                           aut:OperatingSystemInformation;
+               rdfs:range aut:Host.
+aut:sourceMime a owl:DatatypeProperty;
+               rdfs:domain aut:RecentDocument;
+               rdfs:range xsd:string.
+aut:temporaryFilesDirectory a owl:DatatypeProperty;
+                            rdfs:domain aut:OperatingSystemInformation;
+                            rdfs:range xsd:string.
+aut:text a owl:DatatypeProperty;
+         rdfs:domain aut:WebSearch;
+         rdfs:range xsd:string.
+aut:timeDeleted a owl:DatatypeProperty;
+                rdfs:domain aut:RecycleBin;
+                rdfs:range xsd:dateTime.
+aut:title a owl:DatatypeProperty;
+          rdfs:domain aut:WebBookmark;
+          rdfs:range xsd:string.
+aut:url a owl:DatatypeProperty;
+        rdfs:domain aut:WebBookmark,
+                    aut:WebCookie,
+                    aut:WebHistory;
+        rdfs:range xsd:string.
+aut:userID a owl:DatatypeProperty;
+           rdfs:domain aut:Metadata;
+           rdfs:range xsd:string.
+aut:userName a owl:DatatypeProperty;
+             rdfs:domain aut:RecycleBin;
+             rdfs:range xsd:string.

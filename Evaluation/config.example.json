@@ -1,0 +1,32 @@
+{
+  "ontology_path": "./ontology.ttl",
+  "questions_path": "./questions.json",
+  "output_dir": "./results",
+
+  "repeats": 1,
+  "llm_timeout_s": 120,
+
+  "conditions": ["grounded"],
+
+  "prompt": {
+    "role": "user",
+    "template": "You are an expert in generating semantic web SPARQL queries and helping people create their own.\nThe user has asked for a sparql query that meets requirements described.\nEnsure the query is complete and includes all required prefixes.\nThe ontology definition is included.\nWhere there is a relationship, ensure you extract enough data to be able to draw visual links between the entities.\nYou must only use terms that are within the ontology definition.\nThe query must be a CONSTRUCT query, subjects must be entities and all relevant literals in the CONSTRUCT clause.\nPredicates to RDF definitions of the entities for their type must be included in the CONSTRUCT clause.\nWhen related entities are included in the WHERE clause, they must also be present in the CONSTRUCT clause.\nEnsure that literals of related entities are also included in the CONSTRUCT clause.\nReturn only the query.\nThe users request is:\n\"<prompt>\"\n\nThe ontology definition is below. You must only use terms defined in the ontology:\n<ontology>"
+  },
+
+  "llms": [
+    {
+      "name": "gpt-4o",
+      "api_url": "https://api.openai.com/v1/chat/completions",
+      "api_key": "sk-...",
+      "model": "gpt-4o",
+      "temperature": 0.0
+    },
+    {
+      "name": "gemma-local",
+      "api_url": "http://localhost:11434/v1/chat/completions",
+      "api_key": "",
+      "model": "gemma2:9b",
+      "temperature": 0.0
+    }
+  ]
+}
